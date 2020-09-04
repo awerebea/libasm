@@ -6,13 +6,12 @@
 #    By: awerebea <awerebea@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 21:56:47 by awerebea          #+#    #+#              #
-#    Updated: 2020/09/04 14:45:51 by awerebea         ###   ########.fr        #
+#    Updated: 2020/09/04 23:08:17 by awerebea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libasm.a
 AC			= nasm
-AFLAGS		= -f macho64
 DBGFLAGS	= -g
 SRCDIR		= srcs/
 OBJDIR		= objs/
@@ -27,6 +26,14 @@ CFLAGS		= -Wall -Werror -Wextra
 TEST_SRCS	= main
 TEST_OBJS	= $(TEST_SRCS:=.o)
 TEST_DFLS	= $(TEST_SRCS:=.d)
+
+#-- configuring MLX library path and 'key-define' header files depending on OS
+OS				= $(shell uname)
+ifeq ($(OS), Linux)
+	AFLAGS		= -f elf64
+else
+	AFLAGS		= -f macho64
+endif
 
 override FLAGS ?= $(AFLAGS)
 
