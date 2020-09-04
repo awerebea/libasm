@@ -6,7 +6,7 @@
 #    By: awerebea <awerebea@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 21:56:47 by awerebea          #+#    #+#              #
-#    Updated: 2020/09/03 18:49:23 by awerebea         ###   ########.fr        #
+#    Updated: 2020/09/04 14:45:51 by awerebea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ DBGFLAGS	= -g
 SRCDIR		= srcs/
 OBJDIR		= objs/
 SRCS		=	ft_strlen \
-				ft_strcpy
+				ft_strcpy \
+				ft_strcmp
 OBJS		= $(addprefix $(OBJDIR), $(SRCS:=.o))
 
 TEST		= tester
