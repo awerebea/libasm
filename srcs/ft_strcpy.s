@@ -6,14 +6,14 @@
 #    By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/03 12:32:13 by awerebea          #+#    #+#              #
-#    Updated: 2020/09/04 14:05:33 by awerebea         ###   ########.fr        #
+#    Updated: 2020/09/05 12:24:38 by awerebea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 section	.text
-	global _ft_strcpy
+	global ft_strcpy
 
-_ft_strcpy:
+ft_strcpy:
 	xor		rcx, rcx
 	mov		rax, rdi
 .loop:
@@ -23,5 +23,5 @@ _ft_strcpy:
 	jz		.end
 	inc		rcx
 	jmp		.loop
-.end
+.end:
 	ret

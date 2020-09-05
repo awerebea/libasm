@@ -6,14 +6,14 @@
 #    By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/04 14:43:44 by awerebea          #+#    #+#              #
-#    Updated: 2020/09/04 17:48:40 by awerebea         ###   ########.fr        #
+#    Updated: 2020/09/05 12:24:17 by awerebea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 section	.text
-	global _ft_strcmp
+	global ft_strcmp
 
-_ft_strcmp:
+ft_strcmp:
 	xor		rax, rax
 	xor		rcx, rcx
 .loop:
