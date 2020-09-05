@@ -6,7 +6,7 @@
 #    By: awerebea <awerebea@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 21:56:47 by awerebea          #+#    #+#              #
-#    Updated: 2020/09/05 19:51:40 by awerebea         ###   ########.fr        #
+#    Updated: 2020/09/05 19:54:07 by awerebea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ TEST_SRCS	= main
 TEST_OBJS	= $(addprefix $(OBJDIR), $(TEST_SRCS:=.o))
 TEST_DFLS	= $(addprefix $(OBJDIR), $(TEST_SRCS:=.d))
 
-#---------------- configuring NASM compile flags depending on OS ---------------
+#-------------------- configuring variables depending on OS --------------------
 OS				= $(shell uname)
 ifeq ($(OS), Linux)
 	AFLAGS		= -felf64
