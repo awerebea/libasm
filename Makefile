@@ -6,14 +6,13 @@
 #    By: awerebea <awerebea@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 21:56:47 by awerebea          #+#    #+#              #
-#    Updated: 2020/09/05 12:28:39 by awerebea         ###   ########.fr        #
+#    Updated: 2020/09/05 19:51:40 by awerebea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libasm.a
 AC			= nasm
 DBGFLAGS	= -g
-SRCDIR		= srcs/
 OBJDIR		= bin/
 SRCS		=	ft_strlen \
 				ft_strcpy \
@@ -33,8 +32,10 @@ TEST_DFLS	= $(addprefix $(OBJDIR), $(TEST_SRCS:=.d))
 OS				= $(shell uname)
 ifeq ($(OS), Linux)
 	AFLAGS		= -felf64
+	SRCDIR		= srcs/linux/
 else
 	AFLAGS		= -f macho64
+	SRCDIR		= srcs/macos/
 endif
 
 override FLAGS ?= $(AFLAGS)
