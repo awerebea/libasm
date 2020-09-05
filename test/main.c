@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 15:19:07 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/09/05 13:00:52 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/09/05 18:56:55 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,102 +16,87 @@
 #include <stdio.h>
 #include "libasm.h"
 
-int			f_test_strlen(void)
+void		f_test_strlen(char **s)
 {
+	char	*f_name = "ft_strlen";
 	size_t	res;
 	size_t	res_ft;
-	int		k = 0;
-	char	*s[6] = {"", "1", "21", "foo", "foo bar", "foo bar baz 0123456789"};
-	printf("\n------------ ft_strlen ------------\n");
-	for (int i = 0; i < 6; i++)
+	printf("\e[1;33m------------ %s ------------\e[0m\n", f_name);
+	for (int i = 0; i < 4; i++)
 	{
 		res = strlen(s[i]);
 		res_ft = ft_strlen(s[i]);
-		printf("string: `%s`\nresult std (f): %2lu\nresult ft_ (f): \
-%2lu\n", s[i], res, res_ft);
+		printf("\e[1;33mstring\e[0m: `%s`\n\n\e[1;34mresult std(f)\e[0m: \
+%2lu\n\e[1;35mresult ft_(f)\e[0m: %2lu\n", s[i], res, res_ft);
 		if (res == res_ft)
-		{
-			printf("OK\n\n");
-			k++;
-		}
+			printf("test result: \e[1;32mOK\e[0m\n\n");
 		else
-			printf("FAIL\n\n");
+			printf("test result: \e[1;31mFAIL\e[0m\n\n");
 	}
-	return ((k == 6) ? 0 : 1);
 }
 
-int			f_test_strcpy(void)
+void		f_test_strcpy(char **s)
 {
-	char	res[50];
-	char	res_ft[50];
-	int		k = 0;
+	char	*f_name = "ft_strcpy";
+	char	res[1024];
+	char	res_ft[1024];
 
-	char	*s[6] = {"", "1", "21", "foo", "foo bar", "foo bar baz 0123456789"};
-	printf("\n------------ ft_strcpy ------------\n");
-	for (int i = 0; i < 6; i++)
+	printf("\e[1;33m------------ %s ------------\e[0m\n", f_name);
+	for (int i = 0; i < 4; i++)
 	{
 		strcpy(res, s[i]);
 		ft_strcpy(res_ft, s[i]);
-		printf("source string: `%s`\nresult std (f): `%s`\nresult ft_ (f): \
-`%s`\n", s[i], res, res_ft);
-		if (!(strcmp(res_ft, res)))
-		{
-			printf("OK\n\n");
-			k++;
-		}
+		printf("\e[1;33msource string\e[0m: `%s`\n\n\e[1;34mresult std(f)\e[0m: \
+`%s`\n\n\e[1;35mresult ft_(f)\e[0m: `%s`\n", s[i], res, res_ft);
+		if (!strcmp(res, res_ft))
+			printf("test result: \e[1;32mOK\e[0m\n\n");
 		else
-			printf("FAIL\n\n");
+			printf("test result: \e[1;31mFAIL\e[0m\n\n");
 	}
-	return ((k == 6) ? 0 : 1);
 }
 
-int			f_test_strcmp(void)
+void		f_test_strcmp(char **s)
 {
+	char	*f_name = "ft_strcmp";
 	int		res;
 	int		res_ft;
-	char	*s1[6] = {"", "1", "21", "foo", "foo bar", "foo bar baz 0123456789"};
-	char	*s2[6] = {"", "1", "21", "foo", "foo bar", "foo bar baz 0123456789"};
-	int		k = 0;
 
-	printf("\n------------ ft_strcmp ------------\n");
+	printf("\e[1;33m------------ %s ------------\e[0m\n", f_name);
 	int	j;
-	for (int i = 0; i < 6; i++)
+	for (int i = 0; i < 4; i++)
 	{
-		for (j = 0; j < 6; j++)
+		for (j = 0; j < 4; j++)
 		{
-			res = strcmp(s1[i], s2[j]);
-			res_ft = ft_strcmp(s1[i], s2[j]);
-			printf("string 1:\t`%s`\nstring 2:\t`%s`\nresult std (f): %d\n\
-result ft_ (f): %d\n", s1[i], s2[j], res, res_ft);
-		if (res_ft == res)
-		{
-			printf("OK\n\n");
-			k++;
-		}
+			res = strcmp(s[i], s[j]);
+			res_ft = ft_strcmp(s[i], s[j]);
+			printf("\e[1;33mstring 1\e[0m: `%s`\n\n\e[1;33mstring 2\e[0m: `%s`\n\n\e[1;34mresult \
+std(f)\e[0m: %d\n\e[1;35mresult ft_(f)\e[0m: %d\n", s[i], s[j], res, res_ft);
+		if (res == res_ft)
+			printf("test result: \e[1;32mOK\e[0m\n\n");
 		else
-			printf("FAIL\n\n");
+			printf("test result: \e[1;31mFAIL\e[0m\n\n");
 		}
 	}
-	return ((k == 36) ? 0 : 1);
 }
 
 int			main(void)
 {
-	int result_strlen = f_test_strlen();
-	int result_strcpy = f_test_strcpy();
-	int result_strcmp = f_test_strcmp();
+	char	*s[4] = {\
+					"", \
+					"foo", \
+					"foo bar baz 0123456789", \
+					"Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
+Quisque maximus eros eget nunc blandit commodo. Quisque diam lectus, feugiat \
+et nunc sit amet, suscipit imperdiet est. Morbi non felis ut lacus faucibus \
+molestie. Duis quis ipsum feugiat ex convallis tempor non nec risus. Aenean \
+laoreet lorem at egestas aliquam. Curabitur fermentum, ex ut cursus lacinia, \
+nisi diam commodo felis, dignissim sodales turpis augue a lectus. Aliquam erat \
+volutpat. Proin pulvinar scelerisque augue, ut feugiat ex volutpat id."\
+					};
 
-	if (!result_strlen)
-		printf("ft_strlen test passed!\n");
-	else
-		printf("ft_strlen test passed!\n");
-	if (!result_strcpy)
-		printf("ft_strcpy test passed!\n");
-	else
-		printf("ft_strcpy test passed!\n");
-	if (!result_strcmp)
-		printf("ft_strcmp test passed!\n");
-	else
-		printf("ft_strcmp test passed!\n");
+	f_test_strlen(s);
+	/* f_test_strcpy(s); */
+	/* f_test_strcmp(s); */
+
 	return (0);
 }
