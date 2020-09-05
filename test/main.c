@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 15:19:07 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/09/05 18:56:55 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/09/05 18:59:11 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,7 @@ void		f_test_strlen(char **s)
 		res = strlen(s[i]);
 		res_ft = ft_strlen(s[i]);
 		printf("\e[1;33mstring\e[0m: `%s`\n\n\e[1;34mresult std(f)\e[0m: \
-%2lu\n\e[1;35mresult ft_(f)\e[0m: %2lu\n", s[i], res, res_ft);
-		if (res == res_ft)
-			printf("test result: \e[1;32mOK\e[0m\n\n");
-		else
-			printf("test result: \e[1;31mFAIL\e[0m\n\n");
+%2lu\n\e[1;35mresult ft_(f)\e[0m: %2lu\n\n", s[i], res, res_ft);
 	}
 }
 
@@ -47,11 +43,7 @@ void		f_test_strcpy(char **s)
 		strcpy(res, s[i]);
 		ft_strcpy(res_ft, s[i]);
 		printf("\e[1;33msource string\e[0m: `%s`\n\n\e[1;34mresult std(f)\e[0m: \
-`%s`\n\n\e[1;35mresult ft_(f)\e[0m: `%s`\n", s[i], res, res_ft);
-		if (!strcmp(res, res_ft))
-			printf("test result: \e[1;32mOK\e[0m\n\n");
-		else
-			printf("test result: \e[1;31mFAIL\e[0m\n\n");
+`%s`\n\n\e[1;35mresult ft_(f)\e[0m: `%s`\n\n", s[i], res, res_ft);
 	}
 }
 
@@ -70,11 +62,7 @@ void		f_test_strcmp(char **s)
 			res = strcmp(s[i], s[j]);
 			res_ft = ft_strcmp(s[i], s[j]);
 			printf("\e[1;33mstring 1\e[0m: `%s`\n\n\e[1;33mstring 2\e[0m: `%s`\n\n\e[1;34mresult \
-std(f)\e[0m: %d\n\e[1;35mresult ft_(f)\e[0m: %d\n", s[i], s[j], res, res_ft);
-		if (res == res_ft)
-			printf("test result: \e[1;32mOK\e[0m\n\n");
-		else
-			printf("test result: \e[1;31mFAIL\e[0m\n\n");
+std(f)\e[0m: %d\n\e[1;35mresult ft_(f)\e[0m: %d\n\n", s[i], s[j], res, res_ft);
 		}
 	}
 }
@@ -95,8 +83,8 @@ volutpat. Proin pulvinar scelerisque augue, ut feugiat ex volutpat id."\
 					};
 
 	f_test_strlen(s);
-	/* f_test_strcpy(s); */
-	/* f_test_strcmp(s); */
+	f_test_strcpy(s);
+	f_test_strcmp(s);
 
 	return (0);
 }
