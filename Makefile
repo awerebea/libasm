@@ -6,7 +6,7 @@
 #    By: awerebea <awerebea@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 21:56:47 by awerebea          #+#    #+#              #
-#    Updated: 2020/09/06 14:36:37 by awerebea         ###   ########.fr        #
+#    Updated: 2020/09/06 19:43:34 by awerebea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRCS		=	ft_strlen \
 				ft_strcpy \
 				ft_strcmp \
 				ft_write \
-				ft_read
+				ft_read \
+				ft_strdup
 OBJS		= $(addprefix $(OBJDIR), $(SRCS:=.o))
 
 TEST		= tester
@@ -52,9 +53,8 @@ $(TEST_OBJS):	$(OBJDIR)%.o: $(TEST_SRCDIR)%.c
 	$(CC)		$(CFLAGS) $(INCLUDES) -c $< -o $@ -MMD
 
 test:			$(TEST)
+	rm -f	*.txt
 	./$(TEST)
-
-test_re: fclean test
 
 debug:
 	make FLAGS="$(AFLAGS) $(DBGFLAGS)" all

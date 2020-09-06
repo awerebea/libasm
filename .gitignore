@@ -1,4 +1,5 @@
 .DS_Store
+._*.pdf
 *.swp
 *.txt
 *.[oad]
