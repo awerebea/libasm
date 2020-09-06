@@ -6,7 +6,7 @@
 #    By: awerebea <awerebea@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 21:56:47 by awerebea          #+#    #+#              #
-#    Updated: 2020/09/06 13:31:13 by awerebea         ###   ########.fr        #
+#    Updated: 2020/09/06 14:36:37 by awerebea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ SRCDIR		= srcs/
 SRCS		=	ft_strlen \
 				ft_strcpy \
 				ft_strcmp \
-				ft_write
+				ft_write \
+				ft_read
 OBJS		= $(addprefix $(OBJDIR), $(SRCS:=.o))
 
 TEST		= tester
