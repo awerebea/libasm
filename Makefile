@@ -6,18 +6,20 @@
 #    By: awerebea <awerebea@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 21:56:47 by awerebea          #+#    #+#              #
-#    Updated: 2020/09/05 20:47:56 by awerebea         ###   ########.fr        #
+#    Updated: 2020/09/06 13:31:13 by awerebea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libasm.a
 AC			= nasm
+AFLAGS		= -fmacho64
 DBGFLAGS	= -g
 OBJDIR		= bin/
 SRCDIR		= srcs/
 SRCS		=	ft_strlen \
 				ft_strcpy \
-				ft_strcmp
+				ft_strcmp \
+				ft_write
 OBJS		= $(addprefix $(OBJDIR), $(SRCS:=.o))
 
 TEST		= tester
@@ -28,14 +30,6 @@ TEST_SRCDIR	= test/
 TEST_SRCS	= main
 TEST_OBJS	= $(addprefix $(OBJDIR), $(TEST_SRCS:=.o))
 TEST_DFLS	= $(addprefix $(OBJDIR), $(TEST_SRCS:=.d))
-
-#-------------------- configuring variables depending on OS --------------------
-OS				= $(shell uname)
-ifeq ($(OS), Linux)
-	AFLAGS		= -f elf64
-else
-	AFLAGS		= -fmacho64
-endif
 
 override FLAGS ?= $(AFLAGS)
 
@@ -70,8 +64,23 @@ clean:
 	rm -rf		$(OBJDIR)
 
 fclean:			clean
-	rm -f		$(NAME) $(TEST)
+	rm -f		$(NAME) $(TEST) *.txt
 
 re:				fclean all
 
-.PHONY: all clean debug fclean re test test_re
+diff_files:
+	@printf "\e[1;34mcat test_std.txt\e[0m"
+	@echo
+	@cat test_std.txt
+	@echo
+	@echo
+	@printf "\e[1;35mcat test_ft.txt\e[0m"
+	@echo
+	@cat test_ft.txt
+	@echo
+	@echo
+	@printf "\e[1;33mdiff test_std.txt test_ft.txt\e[0m"
+	@echo
+	@diff test_std.txt test_ft.txt
+
+.PHONY: all clean debug fclean re test test_re diff_files
