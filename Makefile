@@ -6,7 +6,7 @@
 #    By: awerebea <awerebea@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 21:56:47 by awerebea          #+#    #+#              #
-#    Updated: 2020/09/06 19:43:34 by awerebea         ###   ########.fr        #
+#    Updated: 2020/09/06 20:08:19 by awerebea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,18 +70,18 @@ fclean:			clean
 re:				fclean all
 
 diff_files:
-	@printf "\e[1;34mcat test_std.txt\e[0m"
+	@printf "\e[1;34mcat test_write.txt\e[0m"
 	@echo
-	@cat test_std.txt
-	@echo
-	@echo
-	@printf "\e[1;35mcat test_ft.txt\e[0m"
-	@echo
-	@cat test_ft.txt
+	@cat test_write.txt
 	@echo
 	@echo
-	@printf "\e[1;33mdiff test_std.txt test_ft.txt\e[0m"
+	@printf "\e[1;35mcat test_write_ft.txt\e[0m"
 	@echo
-	@diff test_std.txt test_ft.txt
+	@cat test_write_ft.txt
+	@echo
+	@echo
+	@printf "\e[1;33mdiff test_write.txt test_write_ft.txt\e[0m"
+	@echo
+	@diff test_write.txt test_write_ft.txt
 
 .PHONY: all clean debug fclean re test test_re diff_files

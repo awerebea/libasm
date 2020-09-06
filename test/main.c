@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 15:19:07 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/09/06 19:53:47 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/09/06 20:06:44 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int			f_test_write(char **s)
 
 	if ((fd_file_1 = open("test_write.txt", O_RDWR | O_CREAT | O_TRUNC, 0664)) < 0)
 		return (fd_file_1);
-	if ((fd_file_2 = open("test_ft_write.txt", O_RDWR | O_CREAT | O_TRUNC, 0664)) < 0)
+	if ((fd_file_2 = open("test_write_ft.txt", O_RDWR | O_CREAT | O_TRUNC, 0664)) < 0)
 		return (fd_file_2);
 
 	printf("\n\e[1;33mbuffer\e[0m: `%s`\n", "");
